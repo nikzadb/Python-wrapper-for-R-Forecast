@@ -5,8 +5,7 @@ seasonal decompositions from R. It is the main module in this package.
 from rpy2 import robjects
 from rpy2.robjects.packages import importr
 import numpy
-import converters
-import validate
+from rforecast import converters, validate
 import itertools
 
 fc = importr('forecast')

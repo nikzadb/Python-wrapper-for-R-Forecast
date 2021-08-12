@@ -10,7 +10,7 @@ import pandas
 from rpy2.robjects.packages import importr
 from rpy2 import robjects
 from math import floor
-import validate
+from rforecast import validate
 
 stats = importr('stats')
 

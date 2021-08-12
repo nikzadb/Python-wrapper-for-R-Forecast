@@ -3,10 +3,10 @@ ts_io.py handles reading time series into Pandas Series objects with the
 index set up as used in RForecast.
 '''
 import pandas
-import converters
+from rforecast import converters
 from rpy2 import robjects
 from rpy2.robjects.packages import importr
-from rpy2.rinterface import RRuntimeError
+#from rpy2.rinterface import RRuntimeError
 
 
 # TODO: if we accept msts, this will have to accept more than 3 columns
@@ -58,11 +58,11 @@ def read_ts(ts_name, pkgname=None, as_pandas=True):
   if pkgname is not None:
     try:
       importr(pkgname)
-    except RRuntimeError:
+    except:
       raise IOError('Package %s not found in R.' % pkgname)
   try:
     tsout = robjects.r(ts_name)
-  except RRuntimeError:
+  except:
     raise IOError('Time series %s not found in R.' % ts_name)
   return converters.series_out(tsout, as_pandas)
 

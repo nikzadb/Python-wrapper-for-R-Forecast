@@ -1,5 +1,5 @@
 from rpy2 import robjects
-from rbase import cls, dim, colnames
+from rforecast.rbase import cls, dim, colnames
 import pandas
     
 def is_R_forecast(fc):
